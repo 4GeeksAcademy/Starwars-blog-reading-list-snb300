@@ -32,11 +32,11 @@ const reducer = (state, action) => {
   }
 };
 
-const AppContextProvider = ({ children }) => {
+const appContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const value = { state, dispatch };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 
-export default AppContextProvider;
+export default appContextProvider;

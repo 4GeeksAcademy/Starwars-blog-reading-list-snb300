@@ -3,7 +3,7 @@ import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Context } from "../store/AppContext";
 
-const NavBar = () => {
+const CustomNavbar = () => {
   const { state } = useContext(Context);
 
   return (
@@ -28,4 +28,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default CustomNavbar;
