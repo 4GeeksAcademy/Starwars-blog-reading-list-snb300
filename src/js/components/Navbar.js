@@ -1,9 +1,11 @@
+console.log("Navbar component is loaded");
+
 import React, { useContext } from "react";
 import { Navbar, Nav, Container, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Context } from "../store/AppContext";
 
-const CustomNavbar = () => {
+const NavBar = () => {
   const { state } = useContext(Context);
 
   return (
@@ -28,4 +30,4 @@ const CustomNavbar = () => {
   );
 };
 
-export default CustomNavbar;
+export default NavBar;

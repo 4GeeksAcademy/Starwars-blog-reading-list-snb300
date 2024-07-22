@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../store/AppContext";
 import flux from "../store/Flux";
 
 const Home = () => {

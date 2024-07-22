@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./js/components/Navbar";
+import NavBar from "./js/components/Navbar";
 import Footer from "./js/components/Footer";
 import Home from "./js/views/Home";
 import Single from "./js/views/Single";
@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <AppContextProvider>
       <Router>
-        <Navbar />
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/details/:type/:id" component={Single} />
