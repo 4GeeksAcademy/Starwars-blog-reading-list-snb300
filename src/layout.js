@@ -1,26 +1,45 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import NavBar from "./js/components/Navbar";
-import Footer from "./js/components/Footer";
-import Home from "./js/views/Home";
-import Single from "./js/views/Single";
-import Favorites from "./js/views/Favorites";
-import AppContextProvider from "./js/store/AppContext";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import ScrollToTop from "./component/scrollToTop";
+
+import { Home } from "./views/home";
+import { Details } from "./views/details";
+import injectContext from "./store/appContext";
+
+import { Navbar } from "./component/navbar";
+import { Footer } from "./component/footer";
+
+import "../styles/mediaQuery.css";
 
 const Layout = () => {
+  const basename = process.env.BASENAME || "";
+
   return (
-    <AppContextProvider>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/details/:type/:id" component={Single} />
-          <Route path="/favorites" component={Favorites} />
-        </Switch>
-        <Footer />
-      </Router>
-    </AppContextProvider>
+    <div id="layoutDiv">
+      <HashRouter basename={basename}>
+        <ScrollToTop>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/details/characters/:theid"
+              element={<Details category="characters" />}
+            />
+            <Route
+              path="/details/planets/:theid"
+              element={<Details category="planets" />}
+            />
+            <Route
+              path="/details/starships/:theid"
+              element={<Details category="starships" />}
+            />
+            <Route path="*" element={<h1>Not found!</h1>} />
+          </Routes>
+          <Footer />
+        </ScrollToTop>
+      </HashRouter>
+    </div>
   );
 };
 
-export default Layout;
+export default injectContext(Layout);
